@@ -117,11 +117,9 @@ def get_ingest_effects(elem):
   effect_tags = elem.findall('./StatusEffects/Ingestion/StatusEffect')
   return '<br/>'.join(map(extract_status_effect, effect_tags))
 
-tree = ET.parse('materials.xml')
-root = tree.getroot()
-
 materials = {}
 valid_colours = set()
+vanilla_mats = set()
 
 def get_translated_ui_name(child):
   uiname = child.attrib.get('ui_name', child.attrib['name'])
@@ -211,18 +209,29 @@ def convert_attrib_data(child):
   return result
 
 
-def process_celldata(child):
+def process_celldata(child, is_vanilla):
   material = convert_attrib_data(child)
   
   valid_colours.add(material['colour'])
   materials[material['id']] = material
 
+  if is_vanilla:
+    vanilla_mats.add(material['id'])
 
-for child in root.findall("CellData"):
-  process_celldata(child)
 
-for child in root.findall("CellDataChild"):
-  process_celldata(child)
+def process_materials_file(filename, is_vanilla):
+  tree = ET.parse(filename)
+  root = tree.getroot()
+
+  for child in root.findall("CellData"):
+    process_celldata(child, is_vanilla)
+
+  for child in root.findall("CellDataChild"):
+    process_celldata(child, is_vanilla)
+
+
+process_materials_file("materials_vanilla.xml", True)
+process_materials_file("materials.xml", False)
 
 #valid_colours.update(special_mapping.keys())
 
@@ -635,6 +644,7 @@ def process_material_graphic(material):
 
 
 for mat in materials.values():
+  if mat["id"] in vanilla_mats: continue
   process_material_graphic(mat)
 #for child in root.findall("CellData"):
 #  process_material_graphic(child)
@@ -647,7 +657,7 @@ for mat in materials.values():
 ## Create Similar Material Clusters (same-page tabs)
 ####################################################################
 G = nx.Graph()
-G.add_nodes_from(materials.keys())
+G.add_nodes_from(set(materials.keys()) - vanilla_mats)
 
 def add_melts(mat, id):
   if 'melts' in mat and mat['melts'] != id:
@@ -656,6 +666,7 @@ def add_melts(mat, id):
 
 same_name_nodes = {}
 for mat in materials.values():
+  if mat['id'] in vanilla_mats: continue
   same_name_nodes.setdefault(mat['name'], []).append(mat['id'])
 
   #if 'freezes' in mat: G.add_edge(mat['id'], mat['freezes'])
@@ -798,6 +809,7 @@ def stringify_material_data(mat, num = 0):
 
 mats_list = open('matlist.csv', 'wt')
 for m in materials.values():
+  if m['id'] in vanilla_mats: continue
   mats_list.write(f"#{m['wang_color'][2:]},vanilla,material,{m['id']}\n")
 mats_list.close()
 
@@ -822,7 +834,7 @@ materials_output_file.close()
 
 density_mats_by_name = {}
 for mat in materials.values():
-  if not 'density' in mat: continue
+  if not 'density' in mat or mat['id'] in vanilla_mats: continue
   density_mats_by_name.setdefault(mat['name'], []).append(mat['id'])
 
 densities = []
