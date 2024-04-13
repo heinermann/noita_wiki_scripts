@@ -73,6 +73,8 @@ effect_lookup = {
   "RAINBOW_FARTS": "rainbow farts",
   "CURSE_CLOUD": "rain curse",
   "NIGHTVISION": "wormy vision",
+  "WEAKNESS": "weakness",
+  "MAMMI_EATER": "the loathsome mämmi eater",
 }
 
 
@@ -206,9 +208,11 @@ biome_png_mapping = {
   'biome_impl/excavationsite/receptacle_steam.png': {'Coal Pits'},
   'biome_impl/excavationsite/shop.png': {'Coal Pits'},
   'biome_impl/excavationsite/shop_alt.png': {'Coal Pits'},
+  'biome_impl/huussi.png': {'Outhouse'},
   'biome_impl/liquidcave/container_01.png': {'Ancient Laboratory'},
   'biome_impl/liquidcave/liquidcave_corner.png': {'Ancient Laboratory'},
   'biome_impl/liquidcave/liquidcave_top.png': {'Ancient Laboratory'},
+  'biome_impl/meatroom.png': {'Meat Realm'},
   'biome_impl/mountain/floating_island.png': {'Mountain'},
   'biome_impl/mountain/hall.png': {'Mountain'},
   'biome_impl/mountain/hall_b.png': {'Mountain'},
@@ -374,6 +378,7 @@ biome_png_mapping = {
   'wang_tiles/fungicave.png': {'Fungal Caverns', 'The Tower'},
   'wang_tiles/fungiforest.png': {'Overgrown Cavern'},
   'wang_tiles/liquidcave.png': {'Ancient Laboratory'},
+  'wang_tiles/meat.png': {'Meat Realm'},
   'wang_tiles/pyramid.png': {'Pyramid'},
   'wang_tiles/rainforest.png': {'Underground Jungle', 'The Tower'},
   'wang_tiles/rainforest_dark.png': {'Lukki Lair'},
@@ -411,7 +416,7 @@ biome_mat_mapping = {
   "diamond": {"Temple of the Art", "Coal Pits", "Orb Room", "Forgotten Cave", "Pyramid", "Throne Room", "Abandoned Alchemy Lab", "Magical Temple"},
   "fungisoil": {"Fungal Caverns", "Overgrown Cavern"},
   "fungus_loose": {"Mines", "Collapsed Mines", "Coal Pits", "Fungal Caverns", "Overgrown Cavern", "Underground Jungle", "Forest"},
-  "gold": {"Mines", "Coal Pits", "Fungal Caverns", "Overgrown Cavern", "The Gold", "Ancient Laboratory", "Lukki Lair", "Underground Jungle", "Power Plant", "The Vault", "Wizards' Den", "Collapsed Mines", "Mountain"},
+  "gold": {"Mines", "Coal Pits", "Fungal Caverns", "Overgrown Cavern", "The Gold", "Ancient Laboratory", "Lukki Lair", "Underground Jungle", "Power Plant", "The Vault", "Wizards' Den", "Collapsed Mines", "Mountain", "Meat Realm"},
   "grass_dark": {"Lukki Lair"},
   "grass": {"Mines", "Collapsed Mines", "Ancient Laboratory", "Underground Jungle", "Wizards' Den", "Forest", "Mountain"},
   "gunpowder_explosive": {"Mines", "The Tower"},
@@ -429,7 +434,9 @@ biome_mat_mapping = {
   "magic_liquid_random_polymorph": {"Mines", "The Tower"},
   "magic_liquid_teleportation": {"Mines", "Ancient Laboratory", "The Tower"},
   "magic_liquid_unstable_polymorph": {"Ancient Laboratory"},
+  "magic_liquid_weakness": {"Ancient Laboratory"},
   "material_confusion": {"Ancient Laboratory"},
+  "meat_static": {"Meat Realm"},
   "moss": {"Coal Pits", "Ancient Laboratory", "Wizards' Den", "Forest", "Mountain"},
   "oil": {"Mines", "Ancient Laboratory", "The Tower"},
   "plant_material_red": {"Coal Pits", "The Work (Hell)", "Magical Temple"},
@@ -538,89 +545,69 @@ reverse_spell_lookup = {
   "$action_bomb": {
   "entities/projectiles/bomb.xml",
   "entities/misc/custom_cards/bomb.xml",
-  "entities/projectiles/bomb.xml",
   },
   "$action_light_bullet": {
-  "entities/projectiles/deck/light_bullet.xml",
   "entities/projectiles/deck/light_bullet.xml",
   },
   "$action_light_bullet_trigger": {
   "entities/projectiles/deck/light_bullet.xml",
-  "entities/projectiles/deck/light_bullet.xml",
   },
   "$action_light_bullet_trigger_2": {
-  "entities/projectiles/deck/light_bullet_blue.xml",
   "entities/projectiles/deck/light_bullet_blue.xml",
   },
   "$action_light_bullet_timer": {
   "entities/projectiles/deck/light_bullet.xml",
-  "entities/projectiles/deck/light_bullet.xml",
   },
   "$action_bullet": {
-  "entities/projectiles/deck/bullet.xml",
   "entities/projectiles/deck/bullet.xml",
   },
   "$action_bullet_trigger": {
   "entities/projectiles/deck/bullet.xml",
-  "entities/projectiles/deck/bullet.xml",
   },
   "$action_bullet_timer": {
-  "entities/projectiles/deck/bullet.xml",
   "entities/projectiles/deck/bullet.xml",
   },
   "$action_heavy_bullet": {
   "entities/projectiles/deck/bullet_heavy.xml",
-  "entities/projectiles/deck/bullet_heavy.xml",
   },
   "$action_heavy_bullet_trigger": {
-  "entities/projectiles/deck/bullet_heavy.xml",
   "entities/projectiles/deck/bullet_heavy.xml",
   },
   "$action_heavy_bullet_timer": {
   "entities/projectiles/deck/bullet_heavy.xml",
-  "entities/projectiles/deck/bullet_heavy.xml",
   },
   "$action_air_bullet": {
-  "entities/projectiles/deck/light_bullet_air.xml",
   "entities/projectiles/deck/light_bullet_air.xml",
   },
   "$action_slow_bullet": {
   "entities/projectiles/deck/bullet_slow.xml",
   "entities/misc/custom_cards/bullet_slow.xml",
-  "entities/projectiles/deck/bullet_slow.xml",
   },
   "$action_slow_bullet_trigger": {
   "entities/projectiles/deck/bullet_slow.xml",
   "entities/misc/custom_cards/bullet_slow.xml",
-  "entities/projectiles/deck/bullet_slow.xml",
   },
   "$action_slow_bullet_timer": {
   "entities/projectiles/deck/bullet_slow.xml",
   "entities/misc/custom_cards/bullet_slow.xml",
-  "entities/projectiles/deck/bullet_slow.xml",
   },
   "$action_black_hole": {
   "entities/projectiles/deck/black_hole.xml",
   "entities/misc/custom_cards/black_hole.xml",
-  "entities/projectiles/deck/black_hole.xml",
   },
   "$action_black_hole_death_trigger": {
   "entities/projectiles/deck/black_hole.xml",
   "entities/misc/custom_cards/black_hole.xml",
-  "entities/projectiles/deck/black_hole.xml",
   },
   "$action_black_hole_big": {
   "entities/projectiles/deck/black_hole_big.xml",
   "entities/misc/custom_cards/black_hole_big.xml",
-  "entities/projectiles/deck/black_hole_big.xml",
   },
   "$action_black_hole_giga": {
   "entities/projectiles/deck/black_hole_giga.xml",
   "entities/misc/custom_cards/black_hole_giga.xml",
-  "entities/projectiles/deck/black_hole_giga.xml",
   },
   "$action_tentacle_portal": {
-  "entities/projectiles/deck/tentacle_portal.xml",
   "entities/projectiles/deck/tentacle_portal.xml",
   },
   "$action_decoy": {
@@ -633,186 +620,138 @@ reverse_spell_lookup = {
   },
   "$action_spitter": {
   "entities/projectiles/deck/spitter.xml",
-  "entities/projectiles/deck/spitter.xml",
   },
   "$action_spitter_timer": {
-  "entities/projectiles/deck/spitter.xml",
   "entities/projectiles/deck/spitter.xml",
   },
   "$action_spitter_tier_2": {
   "entities/projectiles/deck/spitter_tier_2.xml",
-  "entities/projectiles/deck/spitter_tier_2.xml",
   },
   "$action_spitter_tier_2_timer": {
-  "entities/projectiles/deck/spitter_tier_2.xml",
   "entities/projectiles/deck/spitter_tier_2.xml",
   },
   "$action_spitter_tier_3": {
   "entities/projectiles/deck/spitter_tier_3.xml",
-  "entities/projectiles/deck/spitter_tier_3.xml",
   },
   "$action_spitter_tier_3_timer": {
-  "entities/projectiles/deck/spitter_tier_3.xml",
   "entities/projectiles/deck/spitter_tier_3.xml",
   },
   "$action_bubbleshot": {
   "entities/projectiles/deck/bubbleshot.xml",
-  "entities/projectiles/deck/bubbleshot.xml",
   },
   "$action_bubbleshot_trigger": {
-  "entities/projectiles/deck/bubbleshot.xml",
   "entities/projectiles/deck/bubbleshot.xml",
   },
   "$action_disc_bullet": {
   "entities/projectiles/deck/disc_bullet.xml",
-  "entities/projectiles/deck/disc_bullet.xml",
   },
   "$action_disc_bullet_big": {
-  "entities/projectiles/deck/disc_bullet_big.xml",
   "entities/projectiles/deck/disc_bullet_big.xml",
   },
   "$action_omega_disc_bullet": {
   "entities/projectiles/deck/disc_bullet_bigger.xml",
-  "entities/projectiles/deck/disc_bullet_bigger.xml",
   },
   "$action_bouncy_orb": {
-  "entities/projectiles/deck/bouncy_orb.xml",
   "entities/projectiles/deck/bouncy_orb.xml",
   },
   "$action_bouncy_orb_timer": {
   "entities/projectiles/deck/bouncy_orb.xml",
-  "entities/projectiles/deck/bouncy_orb.xml",
   },
   "$action_rubber_ball": {
-  "entities/projectiles/deck/rubber_ball.xml",
   "entities/projectiles/deck/rubber_ball.xml",
   },
   "$action_arrow": {
   "entities/projectiles/deck/arrow.xml",
-  "entities/projectiles/deck/arrow.xml",
   },
   "$action_pollen": {
-  "entities/projectiles/deck/pollen.xml",
   "entities/projectiles/deck/pollen.xml",
   },
   "$action_lance": {
   "entities/projectiles/deck/lance.xml",
   "entities/misc/custom_cards/lance.xml",
-  "entities/projectiles/deck/lance.xml",
   },
   "$action_rocket": {
   "entities/projectiles/deck/rocket.xml",
   "entities/misc/custom_cards/rocket.xml",
-  "entities/projectiles/deck/rocket.xml",
   },
   "$action_rocket_tier_2": {
   "entities/projectiles/deck/rocket_tier_2.xml",
   "entities/misc/custom_cards/rocket_tier_2.xml",
-  "entities/projectiles/deck/rocket_tier_2.xml",
   },
   "$action_rocket_tier_3": {
   "entities/projectiles/deck/rocket_tier_3.xml",
   "entities/misc/custom_cards/rocket_tier_3.xml",
-  "entities/projectiles/deck/rocket_tier_3.xml",
   },
   "$action_grenade": {
   "entities/projectiles/deck/grenade.xml",
   "entities/misc/custom_cards/grenade.xml",
-  "entities/projectiles/deck/grenade.xml",
   },
   "$action_grenade_trigger": {
   "entities/projectiles/deck/grenade.xml",
   "entities/misc/custom_cards/grenade_trigger.xml",
-  "entities/projectiles/deck/grenade.xml",
   },
   "$action_grenade_tier_2": {
   "entities/projectiles/deck/grenade_tier_2.xml",
   "entities/misc/custom_cards/grenade_tier_2.xml",
-  "entities/projectiles/deck/grenade_tier_2.xml",
   },
   "$action_grenade_tier_3": {
   "entities/projectiles/deck/grenade_tier_3.xml",
   "entities/misc/custom_cards/grenade_tier_3.xml",
-  "entities/projectiles/deck/grenade_tier_3.xml",
   },
   "$action_grenade_anti": {
   "entities/projectiles/deck/grenade_anti.xml",
   "entities/misc/custom_cards/grenade.xml",
-  "entities/projectiles/deck/grenade_anti.xml",
   },
   "$action_grenade_large": {
   "entities/projectiles/deck/grenade_large.xml",
   "entities/misc/custom_cards/grenade.xml",
-  "entities/projectiles/deck/grenade_large.xml",
   },
   "$action_mine": {
-  "entities/projectiles/deck/mine.xml",
   "entities/projectiles/deck/mine.xml",
   },
   "$action_mine_death_trigger": {
   "entities/projectiles/deck/mine.xml",
-  "entities/projectiles/deck/mine.xml",
   },
   "$action_pipe_bomb": {
-  "entities/projectiles/deck/pipe_bomb.xml",
   "entities/projectiles/deck/pipe_bomb.xml",
   },
   "$action_pipe_bomb_death_trigger": {
   "entities/projectiles/deck/pipe_bomb.xml",
-  "entities/projectiles/deck/pipe_bomb.xml",
   },
   "$action_exploding_deer": {
-  "entities/projectiles/deck/exploding_deer.xml",
   "entities/projectiles/deck/exploding_deer.xml",
   },
   "$action_exploding_ducks": {
   "entities/projectiles/deck/duck.xml",
-  "entities/projectiles/deck/duck.xml",
-  "entities/projectiles/deck/duck.xml",
-  "entities/projectiles/deck/duck.xml",
   },
   "$action_worm_shot": {
-  "entities/projectiles/deck/worm_shot.xml",
   "entities/projectiles/deck/worm_shot.xml",
   },
   "$action_pipe_bomb_detonator": {
   "entities/projectiles/deck/pipe_bomb_detonator.xml",
-  "entities/projectiles/deck/pipe_bomb_detonator.xml",
   },
   "$action_bomb_detonator": {
-  "entities/projectiles/deck/bomb_detonator.xml",
   "entities/projectiles/deck/bomb_detonator.xml",
   },
   "$action_laser": {
   "entities/projectiles/deck/laser.xml",
   "entities/misc/custom_cards/laser.xml",
-  "entities/projectiles/deck/laser.xml",
   "entities/misc/effect_disintegrated.xml",
   },
   "$action_megalaser": {
   "entities/projectiles/deck/megalaser.xml",
   "entities/projectiles/deck/megalaser_beam.xml",
-  "entities/projectiles/deck/megalaser_beam.xml",
-  "entities/projectiles/deck/megalaser_beam.xml",
-  "entities/projectiles/deck/megalaser_beam.xml",
-  "entities/projectiles/deck/megalaser_beam.xml",
-  "entities/projectiles/deck/megalaser.xml",
   "entities/misc/effect_disintegrated.xml",
   },
   "$action_lightning": {
   "entities/projectiles/deck/lightning.xml",
   "entities/misc/custom_cards/electric_charge.xml",
-  "entities/projectiles/deck/lightning.xml",
   },
   "$action_ball_lightning": {
   "entities/projectiles/deck/ball_lightning.xml",
   "entities/misc/custom_cards/electric_charge.xml",
-  "entities/projectiles/deck/ball_lightning.xml",
-  "entities/projectiles/deck/ball_lightning.xml",
-  "entities/projectiles/deck/ball_lightning.xml",
   },
   "$action_laser_emitter": {
-  "entities/projectiles/deck/orb_laseremitter.xml",
   "entities/projectiles/deck/orb_laseremitter.xml",
   "entities/misc/effect_disintegrated.xml",
   },
@@ -823,83 +762,65 @@ reverse_spell_lookup = {
   },
   "$action_laser_emitter_cutter": {
   "entities/projectiles/deck/orb_laseremitter_cutter.xml",
-  "entities/projectiles/deck/orb_laseremitter_cutter.xml",
   "entities/misc/effect_disintegrated.xml",
   },
   "$action_digger": {
   "entities/projectiles/deck/digger.xml",
-  "entities/projectiles/deck/digger.xml",
   },
   "$action_powerdigger": {
-  "entities/projectiles/deck/powerdigger.xml",
   "entities/projectiles/deck/powerdigger.xml",
   },
   "$action_chainsaw": {
   "entities/projectiles/deck/chainsaw.xml",
-  "entities/projectiles/deck/chainsaw.xml",
   },
   "$action_luminous_drill": {
   "entities/projectiles/deck/luminous_drill.xml",
-  "entities/projectiles/deck/luminous_drill.xml",
   },
   "$action_luminous_drill_timer": {
-  "entities/projectiles/deck/luminous_drill.xml",
   "entities/projectiles/deck/luminous_drill.xml",
   },
   "$action_tentacle": {
   "entities/projectiles/deck/tentacle.xml",
   "entities/misc/custom_cards/tentacle.xml",
-  "entities/projectiles/deck/tentacle.xml",
   },
   "$action_tentacle_timer": {
   "entities/projectiles/deck/tentacle.xml",
   "entities/misc/custom_cards/tentacle_timer.xml",
-  "entities/projectiles/deck/tentacle.xml",
   },
   "$action_bloodtentacle": {
-  "entities/projectiles/deck/bloodtentacle.xml",
   "entities/projectiles/deck/bloodtentacle.xml",
   },
   "$action_heal_bullet": {
   "entities/projectiles/deck/heal_bullet.xml",
   "entities/misc/custom_cards/heal_bullet.xml",
-  "entities/projectiles/deck/heal_bullet.xml",
   },
   "$action_spiral_shot": {
   "entities/projectiles/deck/spiral_shot.xml",
   "entities/misc/custom_cards/spiral_shot.xml",
-  "entities/projectiles/deck/spiral_shot.xml",
   },
   "$action_magic_shield": {
-  "entities/projectiles/deck/magic_shield_start.xml",
   "entities/projectiles/deck/magic_shield_start.xml",
   },
   "$action_big_magic_shield": {
   "entities/projectiles/deck/big_magic_shield_start.xml",
-  "entities/projectiles/deck/big_magic_shield_start.xml",
   },
   "$action_chain_bolt": {
-  "entities/projectiles/deck/chain_bolt.xml",
   "entities/projectiles/deck/chain_bolt.xml",
   },
   "$action_fireball": {
   "entities/projectiles/deck/fireball.xml",
   "entities/misc/custom_cards/fireball.xml",
-  "entities/projectiles/deck/fireball.xml",
   },
   "$action_meteor": {
-  "entities/projectiles/deck/meteor.xml",
   "entities/projectiles/deck/meteor.xml",
   },
   "$action_flamethrower": {
   "entities/projectiles/deck/flamethrower.xml",
   "entities/misc/custom_cards/flamethrower.xml",
-  "entities/projectiles/deck/flamethrower.xml",
   },
   "$action_iceball": {
   "entities/projectiles/deck/iceball.xml",
   "entities/misc/custom_cards/iceball.xml",
-  "entities/projectiles/deck/iceball.xml",
   },
   "$action_icethrower": {
   "entities/misc/custom_cards/icethrower.xml",
@@ -908,7 +829,6 @@ reverse_spell_lookup = {
   "$action_slimeball": {
   "entities/projectiles/deck/slime.xml",
   "entities/misc/custom_cards/slimeball.xml",
-  "entities/projectiles/deck/slime.xml",
   },
   "$action_darkflame": {
   "entities/projectiles/deck/darkflame.xml",
@@ -918,46 +838,24 @@ reverse_spell_lookup = {
   "$action_missile": {
   "entities/projectiles/deck/rocket_player.xml",
   },
-  "entities/projectiles/deck/machinegun_bullet.xml": {
-  "entities/projectiles/deck/machinegun_bullet.xml",
-  },
   "$action_pebble": {
-  "entities/projectiles/deck/pebble_player.xml",
   "entities/projectiles/deck/pebble_player.xml",
   },
   "$action_dynamite": {
   "entities/projectiles/deck/tnt.xml",
   "entities/misc/custom_cards/tnt.xml",
-  "entities/projectiles/deck/tnt.xml",
   },
   "$action_glitter_bomb": {
   "entities/projectiles/deck/glitter_bomb.xml",
   "entities/misc/custom_cards/glitter_bomb.xml",
-  "entities/projectiles/deck/glitter_bomb.xml",
   },
   "$action_buckshot": {
-  "entities/projectiles/deck/buckshot_player.xml",
-  "entities/projectiles/deck/buckshot_player.xml",
-  "entities/projectiles/deck/buckshot_player.xml",
   "entities/projectiles/deck/buckshot_player.xml",
   },
   "$action_freezing_gaze": {
   "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
-  "entities/projectiles/deck/freezing_gaze_beam.xml",
   },
   "$action_glowing_bolt": {
-  "entities/projectiles/deck/glowing_bolt.xml",
   "entities/projectiles/deck/glowing_bolt.xml",
   },
   "$action_bomb_legacy": {
@@ -965,50 +863,39 @@ reverse_spell_lookup = {
   },
   "$action_spore_pod": {
   "entities/projectiles/deck/spore_pod.xml",
-  "entities/projectiles/deck/spore_pod.xml",
   },
   "$action_glue_shot": {
-  "entities/projectiles/deck/glue_shot.xml",
   "entities/projectiles/deck/glue_shot.xml",
   },
   "$action_bomb_holy": {
   "entities/projectiles/bomb_holy.xml",
   "entities/misc/custom_cards/bomb_holy.xml",
-  "entities/projectiles/bomb_holy.xml",
   },
   "$action_bomb_holy_giga": {
   "entities/projectiles/bomb_holy_giga.xml",
   "entities/misc/custom_cards/bomb_holy_giga.xml",
-  "entities/projectiles/bomb_holy_giga.xml",
   },
   "$action_propane_tank": {
   "entities/projectiles/propane_tank.xml",
   "entities/misc/custom_cards/propane_tank.xml",
-  "entities/projectiles/propane_tank.xml",
   },
   "$action_bomb_cart": {
-  "entities/projectiles/bomb_cart.xml",
   "entities/projectiles/bomb_cart.xml",
   },
   "$action_cursed_orb": {
   "entities/projectiles/orb_cursed.xml",
-  "entities/projectiles/orb_cursed.xml",
   },
   "$action_expanding_orb": {
   "entities/projectiles/orb_expanding.xml",
-  "entities/projectiles/orb_expanding.xml",
   },
   "$action_crumbling_earth": {
-  "entities/projectiles/deck/crumbling_earth.xml",
   "entities/projectiles/deck/crumbling_earth.xml",
   },
   "$action_summon_rock": {
   "entities/projectiles/deck/rock.xml",
   "entities/misc/custom_cards/summon_rock.xml",
-  "entities/projectiles/deck/rock.xml",
   },
   "$action_summon_egg": {
-  "entities/items/pickup/egg_monster.xml",
   "entities/items/pickup/egg_monster.xml",
   "entities/items/pickup/egg_slime.xml",
   "entities/items/pickup/egg_red.xml",
@@ -1016,42 +903,23 @@ reverse_spell_lookup = {
   },
   "$action_summon_hollow_egg": {
   "entities/items/pickup/egg_hollow.xml",
-  "entities/items/pickup/egg_hollow.xml",
   },
   "$action_tntbox": {
-  "entities/projectiles/deck/tntbox.xml",
   "entities/projectiles/deck/tntbox.xml",
   },
   "$action_tntbox_big": {
   "entities/projectiles/deck/tntbox_big.xml",
-  "entities/projectiles/deck/tntbox_big.xml",
   },
   "$action_swarm_fly": {
-  "entities/projectiles/deck/swarm_fly.xml",
-  "entities/projectiles/deck/swarm_fly.xml",
-  "entities/projectiles/deck/swarm_fly.xml",
-  "entities/projectiles/deck/swarm_fly.xml",
-  "entities/projectiles/deck/swarm_fly.xml",
   "entities/projectiles/deck/swarm_fly.xml",
   },
   "$action_swarm_firebug": {
   "entities/projectiles/deck/swarm_firebug.xml",
-  "entities/projectiles/deck/swarm_firebug.xml",
-  "entities/projectiles/deck/swarm_firebug.xml",
-  "entities/projectiles/deck/swarm_firebug.xml",
-  "entities/projectiles/deck/swarm_firebug.xml",
   },
   "$action_swarm_wasp": {
   "entities/projectiles/deck/swarm_wasp.xml",
-  "entities/projectiles/deck/swarm_wasp.xml",
-  "entities/projectiles/deck/swarm_wasp.xml",
-  "entities/projectiles/deck/swarm_wasp.xml",
-  "entities/projectiles/deck/swarm_wasp.xml",
-  "entities/projectiles/deck/swarm_wasp.xml",
-  "entities/projectiles/deck/swarm_wasp.xml",
   },
   "$action_friend_fly": {
-  "entities/projectiles/deck/friend_fly.xml",
   "entities/projectiles/deck/friend_fly.xml",
   },
   "$action_knife": {
@@ -1069,12 +937,10 @@ reverse_spell_lookup = {
   "$action_acidshot": {
   "entities/projectiles/deck/acidshot.xml",
   "entities/misc/custom_cards/acidshot.xml",
-  "entities/projectiles/deck/acidshot.xml",
   },
   "$action_thunderball": {
   "entities/projectiles/thunderball.xml",
   "entities/misc/custom_cards/thunderball.xml",
-  "entities/projectiles/thunderball.xml",
   },
   "$action_bloomshot": {
   "entities/misc/custom_cards/bloomshot.xml",
@@ -1087,10 +953,8 @@ reverse_spell_lookup = {
   "$action_firebomb": {
   "entities/projectiles/deck/firebomb.xml",
   "entities/misc/custom_cards/firebomb.xml",
-  "entities/projectiles/deck/firebomb.xml",
   },
   "$action_soilball": {
-  "entities/projectiles/chunk_of_soil.xml",
   "entities/projectiles/chunk_of_soil.xml",
   },
   "$action_pink_orb": {
@@ -1100,55 +964,42 @@ reverse_spell_lookup = {
   "$action_death_cross": {
   "entities/projectiles/deck/death_cross.xml",
   "entities/misc/custom_cards/death_cross.xml",
-  "entities/projectiles/deck/death_cross.xml",
   },
   "$action_death_cross_big": {
   "entities/projectiles/deck/death_cross_big.xml",
   "entities/misc/custom_cards/death_cross.xml",
-  "entities/projectiles/deck/death_cross_big.xml",
   },
   "$action_infestation": {
-  "entities/projectiles/deck/infestation.xml",
   "entities/projectiles/deck/infestation.xml",
   },
   "$action_wall_horizontal": {
   "entities/projectiles/deck/wall_horizontal.xml",
-  "entities/projectiles/deck/wall_horizontal.xml",
   },
   "$action_wall_vertical": {
-  "entities/projectiles/deck/wall_vertical.xml",
   "entities/projectiles/deck/wall_vertical.xml",
   },
   "$action_wall_square": {
   "entities/projectiles/deck/wall_square.xml",
-  "entities/projectiles/deck/wall_square.xml",
   },
   "$action_temporary_wall": {
-  "entities/projectiles/deck/temporary_wall.xml",
   "entities/projectiles/deck/temporary_wall.xml",
   },
   "$action_temporary_platform": {
   "entities/projectiles/deck/temporary_platform.xml",
-  "entities/projectiles/deck/temporary_platform.xml",
   },
   "$action_purple_explosion_field": {
-  "entities/projectiles/deck/purple_explosion_field.xml",
   "entities/projectiles/deck/purple_explosion_field.xml",
   },
   "$action_delayed_spell": {
   "entities/projectiles/deck/delayed_spell.xml",
-  "entities/projectiles/deck/delayed_spell.xml",
   },
   "$action_long_distance_cast": {
-  "entities/projectiles/deck/long_distance_cast.xml",
   "entities/projectiles/deck/long_distance_cast.xml",
   },
   "$action_teleport_cast": {
   "entities/projectiles/deck/teleport_cast.xml",
-  "entities/projectiles/deck/teleport_cast.xml",
   },
   "$action_super_teleport_cast": {
-  "entities/projectiles/deck/super_teleport_cast.xml",
   "entities/projectiles/deck/super_teleport_cast.xml",
   },
   "$action_commander_bullet": {
@@ -1177,57 +1028,44 @@ reverse_spell_lookup = {
   },
   "$action_mist_radioactive": {
   "entities/projectiles/deck/mist_radioactive.xml",
-  "entities/projectiles/deck/mist_radioactive.xml",
   },
   "$action_mist_alcohol": {
-  "entities/projectiles/deck/mist_alcohol.xml",
   "entities/projectiles/deck/mist_alcohol.xml",
   },
   "$action_mist_slime": {
   "entities/projectiles/deck/mist_slime.xml",
-  "entities/projectiles/deck/mist_slime.xml",
   },
   "$action_mist_blood": {
-  "entities/projectiles/deck/mist_blood.xml",
   "entities/projectiles/deck/mist_blood.xml",
   },
   "$action_circle_fire": {
   "entities/projectiles/deck/circle_fire.xml",
-  "entities/projectiles/deck/circle_fire.xml",
   },
   "$action_circle_acid": {
-  "entities/projectiles/deck/circle_acid.xml",
   "entities/projectiles/deck/circle_acid.xml",
   },
   "$action_circle_oil": {
   "entities/projectiles/deck/circle_oil.xml",
-  "entities/projectiles/deck/circle_oil.xml",
   },
   "$action_circle_water": {
   "entities/projectiles/deck/circle_water.xml",
-  "entities/projectiles/deck/circle_water.xml",
   },
   "$action_material_water": {
-  "entities/projectiles/deck/material_water.xml",
   "entities/projectiles/deck/material_water.xml",
   "entities/misc/effect_apply_wet.xml",
   },
   "$action_material_oil": {
   "entities/projectiles/deck/material_oil.xml",
-  "entities/projectiles/deck/material_oil.xml",
   "entities/misc/effect_apply_oiled.xml",
   },
   "$action_material_blood": {
-  "entities/projectiles/deck/material_blood.xml",
   "entities/projectiles/deck/material_blood.xml",
   "entities/misc/effect_apply_bloody.xml",
   },
   "$action_material_acid": {
   "entities/projectiles/deck/material_acid.xml",
-  "entities/projectiles/deck/material_acid.xml",
   },
   "$action_material_cement": {
-  "entities/projectiles/deck/material_cement.xml",
   "entities/projectiles/deck/material_cement.xml",
   },
   "$action_material_lava": {
@@ -1254,24 +1092,19 @@ reverse_spell_lookup = {
   "$action_teleport_projectile": {
   "entities/projectiles/deck/teleport_projectile.xml",
   "entities/misc/custom_cards/teleport_projectile.xml",
-  "entities/projectiles/deck/teleport_projectile.xml",
   },
   "$action_teleport_projectile_short": {
   "entities/projectiles/deck/teleport_projectile_short.xml",
   "entities/misc/custom_cards/teleport_projectile_short.xml",
-  "entities/projectiles/deck/teleport_projectile_short.xml",
   },
   "$action_teleport_projectile_static": {
   "entities/projectiles/deck/teleport_projectile_static.xml",
   "entities/misc/custom_cards/teleport_projectile_static.xml",
-  "entities/projectiles/deck/teleport_projectile_static.xml",
   },
   "$action_swapper_projectile": {
   "entities/projectiles/deck/swapper.xml",
-  "entities/projectiles/deck/swapper.xml",
   },
   "$action_teleport_closer": {
-  "entities/projectiles/deck/teleport_projectile_closer.xml",
   "entities/projectiles/deck/teleport_projectile_closer.xml",
   },
   "$action_teleport_home": {
@@ -1284,12 +1117,10 @@ reverse_spell_lookup = {
   "$action_nuke": {
   "entities/projectiles/deck/nuke.xml",
   "entities/misc/custom_cards/nuke.xml",
-  "entities/projectiles/deck/nuke.xml",
   },
   "$action_nuke_giga": {
   "entities/projectiles/deck/nuke_giga.xml",
   "entities/misc/custom_cards/nuke_giga.xml",
-  "entities/projectiles/deck/nuke_giga.xml",
   },
   "$action_high_explosive": {
   "entities/misc/custom_cards/high_explosive.xml",
@@ -1300,42 +1131,33 @@ reverse_spell_lookup = {
   },
   "$action_firework": {
   "entities/projectiles/deck/fireworks/firework_pink.xml",
-  "entities/projectiles/deck/fireworks/firework_pink.xml",
   "entities/projectiles/deck/fireworks/firework_green.xml",
   "entities/projectiles/deck/fireworks/firework_blue.xml",
   "entities/projectiles/deck/fireworks/firework_orange.xml",
   },
   "$action_summon_wandghost": {
   "entities/projectiles/deck/wand_ghost_player.xml",
-  "entities/projectiles/deck/wand_ghost_player.xml",
   "entities/particles/image_emitters/wand_effect.xml",
   },
   "$action_touch_gold": {
   "entities/projectiles/deck/touch_gold.xml",
-  "entities/projectiles/deck/touch_gold.xml",
   },
   "$action_touch_water": {
-  "entities/projectiles/deck/touch_water.xml",
   "entities/projectiles/deck/touch_water.xml",
   },
   "$action_touch_oil": {
   "entities/projectiles/deck/touch_oil.xml",
-  "entities/projectiles/deck/touch_oil.xml",
   },
   "$action_touch_alcohol": {
-  "entities/projectiles/deck/touch_alcohol.xml",
   "entities/projectiles/deck/touch_alcohol.xml",
   },
   "$action_touch_blood": {
   "entities/projectiles/deck/touch_blood.xml",
-  "entities/projectiles/deck/touch_blood.xml",
   },
   "$action_touch_smoke": {
   "entities/projectiles/deck/touch_smoke.xml",
-  "entities/projectiles/deck/touch_smoke.xml",
   },
   "$action_destruction": {
-  "entities/projectiles/deck/destruction.xml",
   "entities/projectiles/deck/destruction.xml",
   },
   "$action_lifetime": {
@@ -1346,18 +1168,14 @@ reverse_spell_lookup = {
   },
   "$action_nolla": {
   "entities/misc/nolla.xml",
-  "entities/misc/nolla.xml",
   },
   "$action_explosion_remove": {
-  "entities/misc/explosion_remove.xml",
   "entities/misc/explosion_remove.xml",
   },
   "$action_explosion_tiny": {
   "entities/misc/explosion_tiny.xml",
-  "entities/misc/explosion_tiny.xml",
   },
   "$action_laser_emitter_wider": {
-  "entities/misc/laser_emitter_wider.xml",
   "entities/misc/laser_emitter_wider.xml",
   },
   "$action_lifetime_infinite": {
@@ -1370,68 +1188,52 @@ reverse_spell_lookup = {
   "$action_blood_magic": {
   "entities/particles/blood_sparks.xml",
   "entities/misc/custom_cards/blood_magic.xml",
-  "entities/particles/blood_sparks.xml",
   },
   "$action_money_magic": {
   "entities/particles/gold_sparks.xml",
   "entities/misc/custom_cards/money_magic.xml",
-  "entities/particles/gold_sparks.xml",
   },
   "$action_blood_to_power": {
   "entities/particles/blood_sparks.xml",
   "entities/misc/custom_cards/blood_to_power.xml",
-  "entities/particles/blood_sparks.xml",
   },
   "$action_quantum_split": {
-  "entities/misc/quantum_split.xml",
   "entities/misc/quantum_split.xml",
   },
   "$action_sinewave": {
   "entities/misc/sinewave.xml",
-  "entities/misc/sinewave.xml",
   },
   "$action_chaotic_arc": {
-  "entities/misc/chaotic_arc.xml",
   "entities/misc/chaotic_arc.xml",
   },
   "$action_pingpong_path": {
   "entities/misc/pingpong_path.xml",
-  "entities/misc/pingpong_path.xml",
   },
   "$action_avoiding_arc": {
-  "entities/misc/avoiding_arc.xml",
   "entities/misc/avoiding_arc.xml",
   },
   "$action_floating_arc": {
   "entities/misc/floating_arc.xml",
-  "entities/misc/floating_arc.xml",
   },
   "$action_fly_downwards": {
-  "entities/misc/fly_downwards.xml",
   "entities/misc/fly_downwards.xml",
   },
   "$action_fly_upwards": {
   "entities/misc/fly_upwards.xml",
-  "entities/misc/fly_upwards.xml",
   },
   "$action_horizontal_arc": {
-  "entities/misc/horizontal_arc.xml",
   "entities/misc/horizontal_arc.xml",
   },
   "$action_line_arc": {
   "entities/misc/line_arc.xml",
-  "entities/misc/line_arc.xml",
   },
   "$action_orbit_shot": {
-  "entities/misc/spiraling_shot.xml",
   "entities/misc/spiraling_shot.xml",
   },
   "$action_spiraling_shot": {
   "entities/misc/orbit_shot.xml",
-  "entities/misc/orbit_shot.xml",
   },
   "$action_phasing_arc": {
-  "entities/misc/phasing_arc.xml",
   "entities/misc/phasing_arc.xml",
   },
   "$action_remove_bounce": {
@@ -1440,46 +1242,31 @@ reverse_spell_lookup = {
   "$action_homing": {
   "entities/misc/homing.xml",
   "entities/particles/tinyspark_white.xml",
-  "entities/misc/homing.xml",
-  "entities/particles/tinyspark_white.xml",
   },
   "$action_homing_short": {
-  "entities/misc/homing_short.xml",
-  "entities/particles/tinyspark_white_weak.xml",
   "entities/misc/homing_short.xml",
   "entities/particles/tinyspark_white_weak.xml",
   },
   "$action_homing_rotate": {
   "entities/misc/homing_rotate.xml",
   "entities/particles/tinyspark_white.xml",
-  "entities/misc/homing_rotate.xml",
-  "entities/particles/tinyspark_white.xml",
   },
   "$action_homing_shooter": {
-  "entities/misc/homing_shooter.xml",
-  "entities/particles/tinyspark_white.xml",
   "entities/misc/homing_shooter.xml",
   "entities/particles/tinyspark_white.xml",
   },
   "$action_autoaim": {
   "entities/misc/autoaim.xml",
-  "entities/misc/autoaim.xml",
   },
   "$action_homing_accelerating": {
-  "entities/misc/homing_accelerating.xml",
-  "entities/particles/tinyspark_white_small.xml",
   "entities/misc/homing_accelerating.xml",
   "entities/particles/tinyspark_white_small.xml",
   },
   "$action_homing_cursor": {
   "entities/misc/homing_cursor.xml",
   "entities/particles/tinyspark_white.xml",
-  "entities/misc/homing_cursor.xml",
-  "entities/particles/tinyspark_white.xml",
   },
   "$action_homing_area": {
-  "entities/misc/homing_area.xml",
-  "entities/particles/tinyspark_white.xml",
   "entities/misc/homing_area.xml",
   "entities/particles/tinyspark_white.xml",
   },
@@ -1489,44 +1276,35 @@ reverse_spell_lookup = {
   },
   "$action_piercing_shot": {
   "entities/misc/piercing_shot.xml",
-  "entities/misc/piercing_shot.xml",
   },
   "$action_clipping_shot": {
-  "entities/misc/clipping_shot.xml",
   "entities/misc/clipping_shot.xml",
   },
   "$action_damage": {
   "entities/particles/tinyspark_yellow.xml",
   "entities/misc/custom_cards/damage.xml",
-  "entities/particles/tinyspark_yellow.xml",
   },
   "$action_damage_random": {
   "entities/particles/tinyspark_yellow.xml",
   "entities/misc/custom_cards/damage_random.xml",
-  "entities/particles/tinyspark_yellow.xml",
   },
   "$action_bloodlust": {
-  "entities/particles/tinyspark_red.xml",
   "entities/particles/tinyspark_red.xml",
   },
   "$action_damage_forever": {
   "entities/particles/tinyspark_red.xml",
   "entities/misc/custom_cards/damage_forever.xml",
-  "entities/particles/tinyspark_red.xml",
   },
   "$action_critical_hit": {
   "entities/misc/custom_cards/critical_hit.xml",
   },
   "$action_area_damage": {
   "entities/misc/area_damage.xml",
-  "entities/misc/area_damage.xml",
   },
   "$action_spells_to_power": {
   "entities/misc/spells_to_power.xml",
-  "entities/misc/spells_to_power.xml",
   },
   "$action_enemies_to_power": {
-  "entities/misc/essence_to_power.xml",
   "entities/misc/essence_to_power.xml",
   },
   "$action_damage_friendly": {
@@ -1544,12 +1322,10 @@ reverse_spell_lookup = {
   "$action_heavy_shot": {
   "entities/particles/heavy_shot.xml",
   "entities/misc/custom_cards/heavy_shot.xml",
-  "entities/particles/heavy_shot.xml",
   },
   "$action_light_shot": {
   "entities/particles/light_shot.xml",
   "entities/misc/custom_cards/light_shot.xml",
-  "entities/particles/light_shot.xml",
   },
   "$action_speed": {
   "entities/misc/custom_cards/speed.xml",
@@ -1557,12 +1333,10 @@ reverse_spell_lookup = {
   "$action_accelerating_shot": {
   "entities/misc/accelerating_shot.xml",
   "entities/misc/custom_cards/accelerating_shot.xml",
-  "entities/misc/accelerating_shot.xml",
   },
   "$action_decelerating_shot": {
   "entities/misc/decelerating_shot.xml",
   "entities/misc/custom_cards/decelerating_shot.xml",
-  "entities/misc/decelerating_shot.xml",
   },
   "$action_explosive_projectile": {
   "entities/misc/custom_cards/explosive_projectile.xml",
@@ -1570,48 +1344,32 @@ reverse_spell_lookup = {
   "$action_water_to_poison": {
   "entities/misc/water_to_poison.xml",
   "entities/particles/tinyspark_purple.xml",
-  "entities/misc/water_to_poison.xml",
-  "entities/particles/tinyspark_purple.xml",
   },
   "$action_blood_to_acid": {
-  "entities/misc/blood_to_acid.xml",
-  "entities/particles/tinyspark_red.xml",
   "entities/misc/blood_to_acid.xml",
   "entities/particles/tinyspark_red.xml",
   },
   "$action_lava_to_blood": {
   "entities/misc/lava_to_blood.xml",
   "entities/particles/tinyspark_orange.xml",
-  "entities/misc/lava_to_blood.xml",
-  "entities/particles/tinyspark_orange.xml",
   },
   "$action_liquid_to_explosion": {
-  "entities/misc/liquid_to_explosion.xml",
-  "entities/particles/tinyspark_red.xml",
   "entities/misc/liquid_to_explosion.xml",
   "entities/particles/tinyspark_red.xml",
   },
   "$action_toxic_to_acid": {
   "entities/misc/toxic_to_acid.xml",
   "entities/particles/tinyspark_green.xml",
-  "entities/misc/toxic_to_acid.xml",
-  "entities/particles/tinyspark_green.xml",
   },
   "$action_static_to_sand": {
-  "entities/misc/static_to_sand.xml",
-  "entities/particles/tinyspark_yellow.xml",
   "entities/misc/static_to_sand.xml",
   "entities/particles/tinyspark_yellow.xml",
   },
   "$action_transmutation": {
   "entities/misc/transmutation.xml",
   "entities/particles/tinyspark_purple_bright.xml",
-  "entities/misc/transmutation.xml",
-  "entities/particles/tinyspark_purple_bright.xml",
   },
   "$action_random_explosion": {
-  "entities/misc/random_explosion.xml",
-  "entities/particles/tinyspark_purple_bright.xml",
   "entities/misc/random_explosion.xml",
   "entities/particles/tinyspark_purple_bright.xml",
   },
@@ -1625,66 +1383,52 @@ reverse_spell_lookup = {
   "$action_explosion": {
   "entities/projectiles/deck/explosion.xml",
   "entities/misc/custom_cards/explosion.xml",
-  "entities/projectiles/deck/explosion.xml",
   },
   "$action_explosion_light": {
   "entities/projectiles/deck/explosion_light.xml",
   "entities/misc/custom_cards/explosion_light.xml",
-  "entities/projectiles/deck/explosion_light.xml",
   },
   "$action_fire_blast": {
   "entities/projectiles/deck/fireblast.xml",
   "entities/misc/custom_cards/fire_blast.xml",
-  "entities/projectiles/deck/fireblast.xml",
   },
   "$action_poison_blast": {
   "entities/projectiles/deck/poison_blast.xml",
   "entities/misc/custom_cards/poison_blast.xml",
-  "entities/projectiles/deck/poison_blast.xml",
   },
   "$action_alcohol_blast": {
   "entities/projectiles/deck/alcohol_blast.xml",
   "entities/misc/custom_cards/alcohol_blast.xml",
-  "entities/projectiles/deck/alcohol_blast.xml",
   },
   "$action_thunder_blast": {
   "entities/projectiles/deck/thunder_blast.xml",
   "entities/misc/custom_cards/thunder_blast.xml",
-  "entities/projectiles/deck/thunder_blast.xml",
   },
   "$action_charm_field": {
   "entities/projectiles/deck/charm_field.xml",
   },
   "$action_berserk_field": {
   "entities/projectiles/deck/berserk_field.xml",
-  "entities/projectiles/deck/berserk_field.xml",
   },
   "$action_polymorph_field": {
-  "entities/projectiles/deck/polymorph_field.xml",
   "entities/projectiles/deck/polymorph_field.xml",
   },
   "$action_chaos_polymorph_field": {
   "entities/projectiles/deck/chaos_polymorph_field.xml",
-  "entities/projectiles/deck/chaos_polymorph_field.xml",
   },
   "$action_electrocution_field": {
-  "entities/projectiles/deck/electrocution_field.xml",
   "entities/projectiles/deck/electrocution_field.xml",
   },
   "$action_freeze_field": {
   "entities/projectiles/deck/freeze_field.xml",
-  "entities/projectiles/deck/freeze_field.xml",
   },
   "$action_regeneration_field": {
-  "entities/projectiles/deck/regeneration_field.xml",
   "entities/projectiles/deck/regeneration_field.xml",
   },
   "$action_teleportation_field": {
   "entities/projectiles/deck/teleportation_field.xml",
-  "entities/projectiles/deck/teleportation_field.xml",
   },
   "$action_levitation_field": {
-  "entities/projectiles/deck/levitation_field.xml",
   "entities/projectiles/deck/levitation_field.xml",
   },
   "$action_telepathy_field": {
@@ -1692,26 +1436,20 @@ reverse_spell_lookup = {
   },
   "$action_shield_field": {
   "entities/projectiles/deck/shield_field.xml",
-  "entities/projectiles/deck/shield_field.xml",
   },
   "$action_projectile_transmutation_field": {
-  "entities/projectiles/deck/projectile_transmutation_field.xml",
   "entities/projectiles/deck/projectile_transmutation_field.xml",
   },
   "$action_projectile_thunder_field": {
   "entities/projectiles/deck/projectile_thunder_field.xml",
-  "entities/projectiles/deck/projectile_thunder_field.xml",
   },
   "$action_projectile_gravity_field": {
-  "entities/projectiles/deck/projectile_gravity_field.xml",
   "entities/projectiles/deck/projectile_gravity_field.xml",
   },
   "$action_vacuum_powder": {
   "entities/projectiles/deck/vacuum_powder.xml",
-  "entities/projectiles/deck/vacuum_powder.xml",
   },
   "$action_vacuum_liquid": {
-  "entities/projectiles/deck/vacuum_liquid.xml",
   "entities/projectiles/deck/vacuum_liquid.xml",
   },
   "$action_vacuum_entities": {
@@ -1720,62 +1458,48 @@ reverse_spell_lookup = {
   },
   "$action_sea_lava": {
   "entities/projectiles/deck/sea_lava.xml",
-  "entities/projectiles/deck/sea_lava.xml",
   },
   "$action_sea_alcohol": {
-  "entities/projectiles/deck/sea_alcohol.xml",
   "entities/projectiles/deck/sea_alcohol.xml",
   },
   "$action_sea_oil": {
   "entities/projectiles/deck/sea_oil.xml",
-  "entities/projectiles/deck/sea_oil.xml",
   },
   "$action_sea_water": {
-  "entities/projectiles/deck/sea_water.xml",
   "entities/projectiles/deck/sea_water.xml",
   },
   "$action_sea_acid": {
   "entities/projectiles/deck/sea_acid.xml",
-  "entities/projectiles/deck/sea_acid.xml",
   },
   "$action_sea_acid_gas": {
-  "entities/projectiles/deck/sea_acid_gas.xml",
   "entities/projectiles/deck/sea_acid_gas.xml",
   },
   "$action_cloud_water": {
   "entities/projectiles/deck/cloud_water.xml",
-  "entities/projectiles/deck/cloud_water.xml",
   },
   "$action_cloud_oil": {
-  "entities/projectiles/deck/cloud_oil.xml",
   "entities/projectiles/deck/cloud_oil.xml",
   },
   "$action_cloud_blood": {
   "entities/projectiles/deck/cloud_blood.xml",
-  "entities/projectiles/deck/cloud_blood.xml",
   },
   "$action_cloud_acid": {
   "entities/projectiles/deck/cloud_acid.xml",
-  "entities/projectiles/deck/cloud_acid.xml",
   },
   "$action_cloud_thunder": {
-  "entities/projectiles/deck/cloud_thunder.xml",
   "entities/projectiles/deck/cloud_thunder.xml",
   },
   "$action_electric_charge": {
   "entities/particles/electricity.xml",
   "entities/misc/custom_cards/electric_charge.xml",
-  "entities/particles/electricity.xml",
   },
   "$action_matter_eater": {
-  "entities/misc/matter_eater.xml",
   "entities/misc/matter_eater.xml",
   },
   "$action_freeze": {
   "entities/particles/freeze_charge.xml",
   "entities/misc/custom_cards/freeze.xml",
   "entities/misc/effect_frozen.xml",
-  "entities/particles/freeze_charge.xml",
   },
   "$action_hitfx_burning_critical_hit": {
   "entities/particles/freeze_charge.xml",
@@ -1783,37 +1507,27 @@ reverse_spell_lookup = {
   },
   "$action_hitfx_critical_water": {
   "entities/misc/hitfx_critical_water.xml",
-  "entities/misc/hitfx_critical_water.xml",
   },
   "$action_hitfx_critical_oil": {
-  "entities/misc/hitfx_critical_oil.xml",
   "entities/misc/hitfx_critical_oil.xml",
   },
   "$action_hitfx_critical_blood": {
   "entities/misc/hitfx_critical_blood.xml",
-  "entities/misc/hitfx_critical_blood.xml",
   },
   "$action_hitfx_toxic_charm": {
   "entities/misc/hitfx_toxic_charm.xml",
-  "entities/misc/hitfx_toxic_charm.xml",
   },
   "$action_hitfx_explosion_slime": {
-  "entities/misc/hitfx_explode_slime.xml",
   "entities/misc/hitfx_explode_slime.xml",
   },
   "$action_hitfx_explosion_slime_giga": {
   "entities/misc/hitfx_explode_slime_giga.xml",
   "entities/particles/tinyspark_purple.xml",
-  "entities/misc/hitfx_explode_slime_giga.xml",
-  "entities/particles/tinyspark_purple.xml",
   },
   "$action_hitfx_explosion_alcohol": {
   "entities/misc/hitfx_explode_alcohol.xml",
-  "entities/misc/hitfx_explode_alcohol.xml",
   },
   "$action_hitfx_explosion_alcohol_giga": {
-  "entities/misc/hitfx_explode_alcohol_giga.xml",
-  "entities/particles/tinyspark_orange.xml",
   "entities/misc/hitfx_explode_alcohol_giga.xml",
   "entities/particles/tinyspark_orange.xml",
   },
@@ -1825,59 +1539,45 @@ reverse_spell_lookup = {
   },
   "$action_rocket_downwards": {
   "entities/misc/rocket_downwards.xml",
-  "entities/misc/rocket_downwards.xml",
   },
   "$action_rocket_octagon": {
-  "entities/misc/rocket_octagon.xml",
   "entities/misc/rocket_octagon.xml",
   },
   "$action_fizzle": {
   "entities/misc/fizzle.xml",
-  "entities/misc/fizzle.xml",
   },
   "$action_bounce_explosion": {
-  "entities/misc/bounce_explosion.xml",
   "entities/misc/bounce_explosion.xml",
   },
   "$action_bounce_spark": {
   "entities/misc/bounce_spark.xml",
-  "entities/misc/bounce_spark.xml",
   },
   "$action_bounce_laser": {
-  "entities/misc/bounce_laser.xml",
   "entities/misc/bounce_laser.xml",
   },
   "$action_bounce_laser_emitter": {
   "entities/misc/bounce_laser_emitter.xml",
-  "entities/misc/bounce_laser_emitter.xml",
   },
   "$action_bounce_larpa": {
   "entities/misc/bounce_larpa.xml",
-  "entities/misc/bounce_larpa.xml",
   },
   "$action_fireball_ray": {
-  "entities/misc/fireball_ray.xml",
   "entities/misc/fireball_ray.xml",
   },
   "$action_lightning_ray": {
   "entities/misc/lightning_ray.xml",
   "entities/misc/custom_cards/electric_charge.xml",
-  "entities/misc/lightning_ray.xml",
   },
   "$action_tentacle_ray": {
-  "entities/misc/tentacle_ray.xml",
   "entities/misc/tentacle_ray.xml",
   },
   "$action_laser_emitter_ray": {
   "entities/misc/laser_emitter_ray.xml",
-  "entities/misc/laser_emitter_ray.xml",
   },
   "$action_fireball_ray_line": {
   "entities/misc/fireball_ray_line.xml",
-  "entities/misc/fireball_ray_line.xml",
   },
   "$action_fireball_ray_enemy": {
-  "entities/misc/hitfx_fireball_ray_enemy.xml",
   "entities/misc/hitfx_fireball_ray_enemy.xml",
   },
   "$action_lightning_ray_enemy": {
@@ -1887,54 +1587,41 @@ reverse_spell_lookup = {
   },
   "$action_tentacle_ray_enemy": {
   "entities/misc/hitfx_tentacle_ray_enemy.xml",
-  "entities/misc/hitfx_tentacle_ray_enemy.xml",
   },
   "$action_gravity_field_enemy": {
-  "entities/misc/hitfx_gravity_field_enemy.xml",
   "entities/misc/hitfx_gravity_field_enemy.xml",
   },
   "$action_curse": {
   "entities/misc/hitfx_curse.xml",
-  "entities/misc/hitfx_curse.xml",
   },
   "$action_curse_wither_projectile": {
-  "entities/misc/hitfx_curse_wither_projectile.xml",
   "entities/misc/hitfx_curse_wither_projectile.xml",
   },
   "$action_curse_wither_explosion": {
   "entities/misc/hitfx_curse_wither_explosion.xml",
-  "entities/misc/hitfx_curse_wither_explosion.xml",
   },
   "$action_curse_wither_melee": {
-  "entities/misc/hitfx_curse_wither_melee.xml",
   "entities/misc/hitfx_curse_wither_melee.xml",
   },
   "$action_curse_wither_electricity": {
   "entities/misc/hitfx_curse_wither_electricity.xml",
-  "entities/misc/hitfx_curse_wither_electricity.xml",
   },
   "$action_orbit_discs": {
-  "entities/misc/orbit_discs.xml",
   "entities/misc/orbit_discs.xml",
   },
   "$action_orbit_fireballs": {
   "entities/misc/orbit_fireballs.xml",
-  "entities/misc/orbit_fireballs.xml",
   },
   "$action_orbit_nukes": {
-  "entities/misc/orbit_nukes.xml",
   "entities/misc/orbit_nukes.xml",
   },
   "$action_orbit_lasers": {
   "entities/misc/orbit_lasers.xml",
-  "entities/misc/orbit_lasers.xml",
   },
   "$action_orbit_larpa": {
   "entities/misc/orbit_larpa.xml",
-  "entities/misc/orbit_larpa.xml",
   },
   "$action_chain_shot": {
-  "entities/misc/chain_shot.xml",
   "entities/misc/chain_shot.xml",
   },
   "$action_hitfx_oiled_freeze": {
@@ -1970,7 +1657,6 @@ reverse_spell_lookup = {
   "entities/misc/arc_fire.xml",
   },
   "$action_arc_gunpowder": {
-  "entities/misc/arc_gunpowder.xml",
   "entities/misc/arc_gunpowder.xml",
   },
   "$action_arc_poison": {
@@ -2053,7 +1739,6 @@ reverse_spell_lookup = {
   },
   "$action_energy_shield_shot": {
   "entities/misc/energy_shield_shot.xml",
-  "entities/misc/energy_shield_shot.xml",
   },
   "$action_tiny_ghost": {
   "entities/misc/custom_cards/tiny_ghost.xml",
@@ -2063,54 +1748,41 @@ reverse_spell_lookup = {
   },
   "$action_ocarina_a": {
   "entities/projectiles/deck/ocarina/ocarina_a.xml",
-  "entities/projectiles/deck/ocarina/ocarina_a.xml",
   },
   "$action_ocarina_b": {
-  "entities/projectiles/deck/ocarina/ocarina_b.xml",
   "entities/projectiles/deck/ocarina/ocarina_b.xml",
   },
   "$action_ocarina_c": {
   "entities/projectiles/deck/ocarina/ocarina_c.xml",
-  "entities/projectiles/deck/ocarina/ocarina_c.xml",
   },
   "$action_ocarina_d": {
-  "entities/projectiles/deck/ocarina/ocarina_d.xml",
   "entities/projectiles/deck/ocarina/ocarina_d.xml",
   },
   "$action_ocarina_e": {
   "entities/projectiles/deck/ocarina/ocarina_e.xml",
-  "entities/projectiles/deck/ocarina/ocarina_e.xml",
   },
   "$action_ocarina_f": {
-  "entities/projectiles/deck/ocarina/ocarina_f.xml",
   "entities/projectiles/deck/ocarina/ocarina_f.xml",
   },
   "$action_ocarina_gsharp": {
   "entities/projectiles/deck/ocarina/ocarina_gsharp.xml",
-  "entities/projectiles/deck/ocarina/ocarina_gsharp.xml",
   },
   "$action_ocarina_a2": {
-  "entities/projectiles/deck/ocarina/ocarina_a2.xml",
   "entities/projectiles/deck/ocarina/ocarina_a2.xml",
   },
   "$action_kantele_a": {
   "entities/projectiles/deck/kantele/kantele_a.xml",
-  "entities/projectiles/deck/kantele/kantele_a.xml",
   },
   "$action_kantele_d": {
-  "entities/projectiles/deck/kantele/kantele_d.xml",
   "entities/projectiles/deck/kantele/kantele_d.xml",
   },
   "$action_kantele_dis": {
   "entities/projectiles/deck/kantele/kantele_dis.xml",
-  "entities/projectiles/deck/kantele/kantele_dis.xml",
   },
   "$action_kantele_e": {
   "entities/projectiles/deck/kantele/kantele_e.xml",
-  "entities/projectiles/deck/kantele/kantele_e.xml",
   },
   "$action_kantele_g": {
-  "entities/projectiles/deck/kantele/kantele_g.xml",
   "entities/projectiles/deck/kantele/kantele_g.xml",
   },
   "$action_all_nukes": {
@@ -2140,22 +1812,17 @@ reverse_spell_lookup = {
   },
   "$action_larpa_chaos": {
   "entities/misc/larpa_chaos.xml",
-  "entities/misc/larpa_chaos.xml",
   },
   "$action_larpa_downwards": {
-  "entities/misc/larpa_downwards.xml",
   "entities/misc/larpa_downwards.xml",
   },
   "$action_larpa_upwards": {
   "entities/misc/larpa_upwards.xml",
-  "entities/misc/larpa_upwards.xml",
   },
   "$action_larpa_chaos_2": {
   "entities/misc/larpa_chaos_2.xml",
-  "entities/misc/larpa_chaos_2.xml",
   },
   "$action_larpa_death": {
-  "entities/misc/larpa_death.xml",
   "entities/misc/larpa_death.xml",
   },
   "$action_meteor_rain": {
@@ -2173,52 +1840,108 @@ reverse_spell_lookup = {
   "$action_colour_red": {
   "entities/particles/tinyspark_red.xml",
   "entities/misc/colour_red.xml",
-  "entities/particles/tinyspark_red.xml",
-  "entities/misc/colour_red.xml",
   },
   "$action_colour_orange": {
-  "entities/particles/tinyspark_red.xml",
-  "entities/misc/colour_orange.xml",
   "entities/particles/tinyspark_red.xml",
   "entities/misc/colour_orange.xml",
   },
   "$action_colour_green": {
   "entities/particles/tinyspark_red.xml",
   "entities/misc/colour_green.xml",
-  "entities/particles/tinyspark_red.xml",
-  "entities/misc/colour_green.xml",
   },
   "$action_colour_yellow": {
-  "entities/particles/tinyspark_red.xml",
-  "entities/misc/colour_yellow.xml",
   "entities/particles/tinyspark_red.xml",
   "entities/misc/colour_yellow.xml",
   },
   "$action_colour_purple": {
   "entities/particles/tinyspark_red.xml",
   "entities/misc/colour_purple.xml",
-  "entities/particles/tinyspark_red.xml",
-  "entities/misc/colour_purple.xml",
   },
   "$action_colour_blue": {
-  "entities/particles/tinyspark_red.xml",
-  "entities/misc/colour_blue.xml",
   "entities/particles/tinyspark_red.xml",
   "entities/misc/colour_blue.xml",
   },
   "$action_colour_rainbow": {
   "entities/particles/tinyspark_red.xml",
   "entities/misc/colour_rainbow.xml",
-  "entities/particles/tinyspark_red.xml",
-  "entities/misc/colour_rainbow.xml",
   },
   "$action_colour_invis": {
-  "entities/misc/colour_invis.xml",
   "entities/misc/colour_invis.xml",
   },
   "$action_rainbow_trail": {
   "entities/misc/custom_cards/rainbow_trail.xml",
   "entities/misc/effect_rainbow_farts.xml",
+  },
+  "$action_hook": {
+    "data/entities/projectiles/deck/hook.xml",
+  },
+  "$action_white_hole": {
+    "data/entities/projectiles/deck/white_hole.xml",
+    "data/entities/misc/custom_cards/white_hole.xml",
+  },
+  "$action_white_hole_big": {
+    "data/entities/projectiles/deck/white_hole_big.xml",
+    "data/entities/misc/custom_cards/white_hole_big.xml",
+  },
+  "$action_white_hole_giga": {
+    "data/entities/projectiles/deck/white_hole_giga.xml",
+    "data/entities/misc/custom_cards/white_hole_giga.xml",
+  },
+  "$action_holy": {
+    "data/entities/projectiles/deck/lance_holy.xml",
+    "data/entities/misc/custom_cards/lance_holy.xml",
+  },
+  "$action_fish": {
+    "data/entities/projectiles/deck/fish.xml",
+  },
+  "$action_antiheal": {
+    "data/entities/projectiles/deck/healhurt.xml",
+  },
+  "$action_caster_cast": {
+    "data/entities/projectiles/deck/caster_cast.xml",
+    "data/entities/misc/caster_cast.xml",
+  },
+  "$action_touch_grass": {
+    "data/entities/projectiles/deck/touch_grass.xml",
+    "data/entities/misc/custom_cards/touch_grass.xml",
+  },
+  "$action_mass_polymorph": {
+    "data/entities/projectiles/deck/mass_polymorph.xml",
+  },
+  "$action_true_orbit": {
+    "data/entities/misc/true_orbit.xml",
+    "data/entities/misc/true_orbit.xml",
+  },
+  "$action_anti_homing": {
+    "data/entities/misc/anti_homing.xml",
+    "data/entities/particles/tinyspark_white.xml",
+  },
+  "$action_homing_wand": {
+    "data/entities/misc/homing_wand.xml",
+    "data/entities/particles/tinyspark_white.xml",
+  },
+  "$action_zero_damage": {
+    "data/entities/particles/tinyspark_white_small.xml",
+    "data/entities/misc/zero_damage.xml",
+  },
+  "$action_clustermod": {
+    "data/entities/misc/custom_cards/clusterbomb.xml",
+    "data/entities/misc/clusterbomb.xml",
+  },
+  "$action_sea_swamp": {
+    "data/entities/projectiles/deck/sea_swamp.xml",
+  },
+  "$action_sea_mimic": {
+    "data/entities/projectiles/deck/sea_mimic.xml",
+  },
+  "$action_bounce_small_explosion": {
+    "data/entities/misc/bounce_small_explosion.xml",
+  },
+  "$action_bounce_lightning": {
+    "data/entities/misc/bounce_lightning.xml",
+  },
+  "$action_bounce_hole": {
+    "data/entities/misc/bounce_hole.xml",
   },
 }
 
@@ -2324,6 +2047,11 @@ extra_entity_xml_name_lookup = {
   "entities/misc/effect_curse_cloud_02.xml": "Acid Rain Curse",
   "entities/misc/perks/fungal_disease.xml": "Fungal Disease",
   "entities/misc/convert_radioactive.xml": "Curse of Greed",
+  "entities/props/meat_cyst.xml": "Meat Cyst",
+  "data/entities/projectiles/pusblob.xml": "Meat Cyst",
+  "entities/props/suspended_cage.xml": "Suspended Cage",
+  "entities/props/suspended_cage_broken.xml": "Suspended Cage",
+  "entities/props/suspended_chain.xml": "Suspended Chain",
 }
 
 ####################################################################
@@ -3248,6 +2976,7 @@ def stringify_material_data(mat, num = 0):
   if 'name' in mat: result += f"| name{n} = {mat['name']}\n"
   if 'type' in mat: result += f"| type{n} = {mat['type']}\n"
   result += f"| id{n} = {mat['id']}\n"
+  result += f"| wang{n} = {mat['wang_color']}\n"
   if 'tags' in mat: result += f"| tags{n} = {','.join(mat['tags'])}\n"
   if 'density' in mat: result += f"| density{n} = {mat['density']}\n"
   if 'hardness' in mat: result += f"| hardness{n} = {mat['hardness']}\n"
