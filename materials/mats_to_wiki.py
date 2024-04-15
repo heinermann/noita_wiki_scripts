@@ -11,6 +11,8 @@ from PIL import Image, ImageDraw, ImageEnhance
 import random
 import operator
 import math
+from pathlib import Path
+import traceback
 
 import pprint # for debugging
 
@@ -29,6 +31,9 @@ import pprint # for debugging
 #   MaterialInventoryComponent/count_per_material_type/Material.material      as containedIn
 #   PixelSpriteComponent.material     as bodyOf lookup
 #   
+
+# TODO preprocess XML files as strings to account for Noita's non-conformance instead of having to regex shit every time
+# https://docs.python.org/3/library/xml.etree.elementtree.html
 
 ####################################################################
 ## Data
@@ -341,23 +346,23 @@ biome_png_mapping = {
   'biome_impl/temple/altar_top_oil.png': {'Holy Mountain'},
   'biome_impl/temple/altar_top_radioactive.png': {'Holy Mountain'},
   'biome_impl/temple/altar_top_water.png': {'Holy Mountain'},
-  'biome_impl/temple/altar_vault_capsule.png': {'Frozen vault'},
-  'biome_impl/vault/acidtank.png': {'Frozen vault'},
-  'biome_impl/vault/brain_room.png': {'Frozen vault'},
-  'biome_impl/vault/catwalk_01.png': {'Frozen vault'},
-  'biome_impl/vault/catwalk_02.png': {'Frozen vault'},
-  'biome_impl/vault/catwalk_02b.png': {'Frozen vault'},
-  'biome_impl/vault/catwalk_03.png': {'Frozen vault'},
-  'biome_impl/vault/catwalk_04.png': {'Frozen vault'},
-  'biome_impl/vault/electric_tunnel_room.png': {'Frozen vault'},
-  'biome_impl/vault/entrance.png': {'Frozen vault'},
-  'biome_impl/vault/lab.png': {'Frozen vault'},
-  'biome_impl/vault/lab_puzzle.png': {'Frozen vault'},
-  'biome_impl/vault/lab2.png': {'Frozen vault'},
-  'biome_impl/vault/lab3.png': {'Frozen vault'},
-  'biome_impl/vault/pipe_big_hor_1.png': {'Frozen vault'},
-  'biome_impl/vault/shop.png': {'Frozen vault'},
-  'biome_impl/vault/symbolroom.png': {'Frozen vault'},
+  'biome_impl/temple/altar_vault_capsule.png': {'Frozen Vault'},
+  'biome_impl/vault/acidtank.png': {'Frozen Vault'},
+  'biome_impl/vault/brain_room.png': {'Frozen Vault'},
+  'biome_impl/vault/catwalk_01.png': {'Frozen Vault'},
+  'biome_impl/vault/catwalk_02.png': {'Frozen Vault'},
+  'biome_impl/vault/catwalk_02b.png': {'Frozen Vault'},
+  'biome_impl/vault/catwalk_03.png': {'Frozen Vault'},
+  'biome_impl/vault/catwalk_04.png': {'Frozen Vault'},
+  'biome_impl/vault/electric_tunnel_room.png': {'Frozen Vault'},
+  'biome_impl/vault/entrance.png': {'Frozen Vault'},
+  'biome_impl/vault/lab.png': {'Frozen Vault'},
+  'biome_impl/vault/lab_puzzle.png': {'Frozen Vault'},
+  'biome_impl/vault/lab2.png': {'Frozen Vault'},
+  'biome_impl/vault/lab3.png': {'Frozen Vault'},
+  'biome_impl/vault/pipe_big_hor_1.png': {'Frozen Vault'},
+  'biome_impl/vault/shop.png': {'Frozen Vault'},
+  'biome_impl/vault/symbolroom.png': {'Frozen Vault'},
   'biome_impl/spliced/boss_arena.png': {'The Laboratory'},
   'biome_impl/spliced/bridge.png': {'Snowy Wasteland'},
   'biome_impl/spliced/gourd_room.png': {'Gourd Cave'},
@@ -2060,9 +2065,9 @@ extra_entity_xml_name_lookup = {
 
 translations = {}
 with open('common.csv', 'r') as f:
-  reader = csv.DictReader(f)
+  reader = csv.reader(f)
   for row in reader:
-    translations['$' + row['t']] = row['en']
+    translations['$' + row[0]] = row[1]
 
 
 ####################################################################
@@ -2095,8 +2100,7 @@ root = tree.getroot()
 materials = {}
 valid_colours = set()
 
-def get_translated_ui_name(child):
-  uiname = child.attrib.get('ui_name', child.attrib['name'])
+def get_translated_ui_name(uiname):
   return translations.get(uiname, uiname).lstrip('$').title()
 
 def convert_attrib_data(child):
@@ -2104,11 +2108,12 @@ def convert_attrib_data(child):
   colour = int(attr.get('wang_color', '0'), base=16) & 0xFFFFFF
 
   result = {
-    "name": get_translated_ui_name(child),
     "id": attr["name"],
     "colour": colour,
     "wang_color": attr.get('wang_color', '0'),
   }
+
+  if 'ui_name' in attr: result['ui_name'] = get_translated_ui_name(attr['ui_name'])
 
   if 'cell_type' in attr: result['cell_type'] = attr['cell_type']
   if 'liquid_static' in attr: result['liquid_static'] = attr['liquid_static']
@@ -2272,11 +2277,12 @@ def merge_material_values(material, spaces=''):
     if len(new_mat.get('tags', set())) == 0:
       new_mat['tags'] = tags
 
-    materials[material['id']] = new_mat
 
+    materials[material['id']] = new_mat
 
 for mat_key in materials.keys():
   merge_material_values(materials[mat_key])
+  materials[mat_key]["name"] = materials[mat_key].get("ui_name", materials[mat_key]['id'])
 
 
 def get_material_type(elem):
@@ -2340,6 +2346,7 @@ def make_gas_mask_copy(mat_alpha):
 
 
 potion_base = Image.open('ui_gfx/items/potion.png')
+alchemistpotion_base = Image.open('ui_gfx/items/potion_alchemist.png')
 powder_base = Image.open('ui_gfx/items/material_pouch.png')
 
 
@@ -2620,7 +2627,8 @@ def process_material_graphic(material):
 
   if mat_type == 'Powder' or mat_type == 'Liquid':
     create_potion_graphic(potion_base, 'potion', mat_id, colour)
-  
+    create_potion_graphic(alchemistpotion_base, 'flask', mat_id, colour)
+
   if mat_type == 'Powder':
     create_potion_graphic(powder_base, 'pouch', mat_id, colour)
 
@@ -2635,6 +2643,10 @@ def process_material_graphic(material):
 
   img.save(f"zout_mats/{fin_dir}/material_{mat_id}.png", optimize=True)
 
+
+dirs_to_create=["./zout_mats/finished", "./zout_mats/unfinished", "./zout_potions"]
+for path in dirs_to_create:
+  Path(path).mkdir(parents=True, exist_ok=True)
 
 for mat in materials.values():
   process_material_graphic(mat)
@@ -2785,7 +2797,11 @@ def get_name(filename, prop, root):
   return None
 
 def process_prop_xml(filename):
-  tree = ET.parse(filename)
+  try:
+    tree = ET.parse(filename)
+  except Exception as ex:
+    raise Exception(f"Invalid XML {filename}") from ex
+
   root = tree.getroot()
 
   if root.tag != 'Entity':
@@ -2814,7 +2830,10 @@ for filename in glob.glob("./entities/**/*.xml", recursive=True):
   if "trailer" in filename: continue
   if "intro" in filename: continue
   #if "/player.xml" in filename: continue
-  process_prop_xml(filename[2:])
+  try:
+    process_prop_xml(filename[2:])
+  except Exception:
+    traceback.print_exc()
 
 print(f'{len(props)} entities found')
 
